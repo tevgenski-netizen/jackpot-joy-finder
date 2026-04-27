@@ -3,34 +3,24 @@ export function SiteFooter() {
     <footer className="border-t hairline bg-onyx py-20">
       <div className="mx-auto max-w-[1240px] px-6 md:px-10">
         <div className="grid grid-cols-2 gap-12 md:grid-cols-12">
-          <div className="col-span-2 md:col-span-4">
+          <div className="col-span-2 md:col-span-5">
             <div className="font-display text-[28px] tracking-tight text-silk">
-              Casino<span className="text-brass">·</span>Audit
+              Casino<span className="text-brass">·</span>Compendium
             </div>
-            <p className="mt-4 max-w-[42ch] text-[14px] leading-[1.7] text-ash">
-              Независимый аудит онлайн-казино и математический разбор азартных игр.
-              Публикуется с 2021 года.
+            <p className="mt-4 max-w-[44ch] text-[14px] leading-[1.7] text-ash">
+              Энциклопедия азартных игр: правила, история и математика —
+              без рекламы, партнёрских ссылок и обещаний выигрыша.
             </p>
           </div>
 
-          <div className="md:col-span-2 md:col-start-6">
+          <div className="md:col-span-3 md:col-start-7">
             <div className="eyebrow">Игры</div>
             <ul className="mt-5 space-y-3 text-[14px] text-silk">
               <li><a href="#games" className="hover:text-brass transition-colors">Слоты</a></li>
               <li><a href="#games" className="hover:text-brass transition-colors">Блэкджек</a></li>
               <li><a href="#games" className="hover:text-brass transition-colors">Рулетка</a></li>
-              <li><a href="#games" className="hover:text-brass transition-colors">Видеопокер</a></li>
+              <li><a href="#games" className="hover:text-brass transition-colors">Покер</a></li>
               <li><a href="#games" className="hover:text-brass transition-colors">Баккара</a></li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <div className="eyebrow">Аудит</div>
-            <ul className="mt-5 space-y-3 text-[14px] text-silk">
-              <li><a href="#platforms" className="hover:text-brass transition-colors">Платформы</a></li>
-              <li><a href="#math" className="hover:text-brass transition-colors">Методология</a></li>
-              <li><a href="#guides" className="hover:text-brass transition-colors">Гайды</a></li>
-              <li><a href="#" className="hover:text-brass transition-colors">Архив отчётов</a></li>
             </ul>
           </div>
 
@@ -49,11 +39,11 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-16 flex flex-col gap-3 border-t hairline pt-8 font-mono text-[11px] uppercase tracking-[0.12em] text-ash md:flex-row md:items-center md:justify-between">
-          <div>© 2021–2025 Casino·Audit. Все обзоры — независимы.</div>
+          <div>© 2021–2025 Casino·Compendium. Энциклопедия игр.</div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-silk">Privacy</a>
-            <a href="#" className="hover:text-silk">Methodology</a>
-            <a href="#" className="hover:text-silk">Contact</a>
+            <a href="#games" className="hover:text-silk">Игры</a>
+            <a href="#math" className="hover:text-silk">Математика</a>
+            <a href="#rules" className="hover:text-silk">История</a>
           </div>
         </div>
       </div>
