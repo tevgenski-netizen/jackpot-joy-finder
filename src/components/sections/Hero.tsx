@@ -7,57 +7,56 @@ export function Hero() {
         {/* Left — copy */}
         <div className="md:col-span-6 md:pt-8">
           <div className="eyebrow animate-hero" style={{ animationDelay: "0ms" }}>
-            Обзоры и стратегии казино · 2025
+            Энциклопедия казино-игр · 2025
           </div>
 
           <h1
             className="mt-6 font-display text-[44px] leading-[1.02] tracking-[-0.02em] text-silk md:text-[72px] animate-hero"
             style={{ animationDelay: "150ms" }}
           >
-            Играйте с умом.
+            Игры казино:
             <br />
-            <span className="italic text-ash">Честные обзоры,</span>
+            <span className="italic text-ash">правила, история</span>
             <br />
-            математика игр и реальный RTP.
+            и математика риска.
           </h1>
 
           <p
             className="mt-8 max-w-[46ch] text-[17px] leading-[1.65] text-ash animate-hero"
             style={{ animationDelay: "350ms" }}
           >
-            Мы анализируем математическое ожидание, дисперсию и условия отыгрыша,
-            а не продаём вам бонусы-пустышки. Никаких партнёрских звёздочек —
-            только проверяемые цифры.
+            Подробный разбор пяти ключевых дисциплин — от французских салонов XVII века
+            до современных видеослотов. Точные правила, происхождение и математика каждой игры.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4 animate-hero" style={{ animationDelay: "550ms" }}>
             <a
-              href="#math"
+              href="#games"
               className="border border-brass bg-brass px-7 py-4 font-mono text-[12px] uppercase tracking-[0.14em] text-onyx hover:bg-brass-dim hover:border-brass-dim transition-colors active:scale-[0.98]"
             >
-              Изучить стратегии
+              Открыть индекс игр
             </a>
             <a
-              href="#games"
+              href="#rules"
               className="border border-white/15 px-7 py-4 font-mono text-[12px] uppercase tracking-[0.14em] text-silk hover:border-brass hover:text-brass transition-colors active:scale-[0.98]"
             >
-              Обзоры игр →
+              Правила и история →
             </a>
           </div>
 
           {/* trust strip */}
           <div className="mt-14 grid grid-cols-3 gap-6 border-t hairline pt-8 animate-hero" style={{ animationDelay: "750ms" }}>
             <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-ash">Игр обозрено</div>
-              <div className="mt-2 font-display text-[32px] leading-none text-silk tabular-nums">147</div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-ash">Игр разобрано</div>
+              <div className="mt-2 font-display text-[32px] leading-none text-silk tabular-nums">17</div>
             </div>
             <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-ash">Платформ</div>
-              <div className="mt-2 font-display text-[32px] leading-none text-silk tabular-nums">38</div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-ash">Веков истории</div>
+              <div className="mt-2 font-display text-[32px] leading-none text-silk tabular-nums">5</div>
             </div>
             <div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-ash">RTP-аудит</div>
-              <div className="mt-2 font-display text-[32px] leading-none text-brass tabular-nums">96.4%</div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-ash">Лучший RTP</div>
+              <div className="mt-2 font-display text-[32px] leading-none text-brass tabular-nums">99.5%</div>
             </div>
           </div>
         </div>
