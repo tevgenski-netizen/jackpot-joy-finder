@@ -40,7 +40,7 @@ export function MathSection() {
                 <div>
                   <div className="eyebrow">Принцип 2</div>
                   <p className="mt-2 text-silk text-[16px] leading-[1.6]">
-                    Бонус с вейджером ×40 уничтожает преимущество RTP 97% за 6 часов игры.
+                    Долгая дистанция стирает удачу: чем больше рук сыграно, тем точнее результат сходится к RTP.
                   </p>
                 </div>
                 <div>
@@ -57,7 +57,7 @@ export function MathSection() {
               <div className="border hairline bg-charcoal/40 p-6 md:p-8">
                 <div className="flex items-baseline justify-between border-b hairline pb-4">
                   <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-brass">
-                    Audit chart · RTP vs Дисперсия
+                    Сравнительный график · RTP vs Дисперсия
                   </div>
                   <div className="font-mono text-[11px] tabular-nums text-ash">N = 10⁸ симуляций</div>
                 </div>
