@@ -32,9 +32,11 @@ if (!mainJs || !cssFile) {
   process.exit(1);
 }
 
-const TITLE = "Casino·Audit — Честные обзоры онлайн-казино, RTP и стратегии";
+const TITLE = "Casino·Compendium — Энциклопедия казино-игр: правила, история, математика";
 const DESC =
-  "Независимый аудит онлайн-казино: реальный RTP, математика игр, проверенные платформы и гайды по стратегиям. Без партнёрских ссылок и пустых бонусов.";
+  "Подробный разбор казино-игр: правила, происхождение, математика и RTP. Слоты, блэкджек, рулетка, видеопокер и баккара — энциклопедия без рекламы.";
+
+const GAME_IDS = ["slots", "blackjack", "roulette", "poker", "baccarat"];
 
 const html = `<!doctype html>
 <html lang="ru">
@@ -72,6 +74,10 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+${GAME_IDS.map(
+  (id) =>
+    `<url><loc>/games/${id}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`
+).join("\n")}
 </urlset>`
 );
 
