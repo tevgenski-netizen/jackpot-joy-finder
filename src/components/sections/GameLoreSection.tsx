@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 
 interface GameLore {
@@ -160,6 +161,14 @@ export function GameLoreSection() {
                       </ul>
                     </div>
                   </div>
+
+                  <Link
+                    to="/games/$gameId"
+                    params={{ gameId: g.id }}
+                    className="mt-10 inline-flex items-center gap-2 border-b border-brass pb-1 font-mono text-[12px] uppercase tracking-[0.14em] text-brass hover:text-silk hover:border-silk transition-colors"
+                  >
+                    Полный обзор «{g.name}» →
+                  </Link>
                 </div>
               </article>
             </Reveal>
