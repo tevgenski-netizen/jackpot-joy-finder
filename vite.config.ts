@@ -6,4 +6,12 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-export default defineConfig();
+// GitHub Pages serves the project at https://tevgenski-netizen.github.io/jackpot-joy-finder/
+// so Vite needs to know about the path prefix in production builds.
+const isProd = process.env.NODE_ENV === "production";
+
+export default defineConfig({
+  vite: {
+    base: isProd ? "/jackpot-joy-finder/" : "/",
+  },
+});
