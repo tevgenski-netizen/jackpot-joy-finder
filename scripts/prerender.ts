@@ -10,19 +10,22 @@ import { join } from "node:path";
 const CLIENT_DIR = "dist/client";
 const SERVER_DIR = "dist/server";
 
+// Must match `base` in vite.config.ts
+const BASE = "/jackpot-joy-finder/";
+const SITE = "https://tevgenski-netizen.github.io/jackpot-joy-finder";
+
 if (!existsSync(CLIENT_DIR) || !existsSync(SERVER_DIR)) {
   console.error("✗ dist/ not found. Run `bun run build` first.");
   process.exit(1);
 }
 
-// Find the manifest from the client build
 const manifestPath = join(SERVER_DIR, ".vite/manifest.json");
 const manifest = JSON.parse(readFileSync(manifestPath, "utf-8")) as Record<
   string,
   { file: string; css?: string[] }
 >;
+void manifest;
 
-// Find the main client entry — it's the file referenced by index.html-like entry
 const clientAssets = readdirSync(join(CLIENT_DIR, "assets"));
 const mainJs = clientAssets.find((f) => f.startsWith("main-") && f.endsWith(".js"));
 const cssFile = clientAssets.find((f) => f.endsWith(".css"));
@@ -52,39 +55,36 @@ const html = `<!doctype html>
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${TITLE}" />
 <meta name="twitter:description" content="${DESC}" />
-<link rel="stylesheet" href="/assets/${cssFile}" />
-<link rel="canonical" href="/" />
+<base href="${BASE}" />
+<link rel="stylesheet" href="${BASE}assets/${cssFile}" />
+<link rel="canonical" href="${SITE}/" />
 </head>
 <body>
 <div id="app"></div>
-<script type="module" src="/assets/${mainJs}"></script>
+<script type="module" src="${BASE}assets/${mainJs}"></script>
 </body>
 </html>`;
 
 writeFileSync(join(CLIENT_DIR, "index.html"), html);
 copyFileSync(join(CLIENT_DIR, "index.html"), join(CLIENT_DIR, "404.html"));
 
-// Robots + sitemap
 writeFileSync(
   join(CLIENT_DIR, "robots.txt"),
-  `User-agent: *\nAllow: /\nSitemap: /sitemap.xml\n`
+  `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`
 );
 writeFileSync(
   join(CLIENT_DIR, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>${SITE}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
 ${GAME_IDS.map(
   (id) =>
-    `<url><loc>/games/${id}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`
+    `<url><loc>${SITE}/games/${id}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`
 ).join("\n")}
 </urlset>`
 );
 
-// .nojekyll so GitHub Pages serves files starting with _
 writeFileSync(join(CLIENT_DIR, ".nojekyll"), "");
 
 console.log("✓ Static site ready in", CLIENT_DIR);
-console.log("  - index.html");
-console.log("  - 404.html (SPA fallback)");
-console.log("  - robots.txt, sitemap.xml, .nojekyll");
+console.log("  base:", BASE);
