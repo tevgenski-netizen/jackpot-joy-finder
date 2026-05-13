@@ -15,9 +15,9 @@ import {
   copyFileSync,
   existsSync,
   readdirSync,
-  createHash,
+  unlinkSync,
 } from "node:fs";
-import { createHash as cryptoHash } from "node:crypto";
+import { createHash } from "node:crypto";
 import { join, resolve } from "node:path";
 import { build as esbuild } from "esbuild";
 
