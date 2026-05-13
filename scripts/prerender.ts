@@ -79,7 +79,7 @@ await esbuild({
 
 // 3) Hash the bundled bootstrap so we can cache-bust.
 const bootstrapBytes = readFileSync(tmpOut);
-const hash = cryptoHash("sha256")
+const hash = createHash("sha256")
   .update(bootstrapBytes)
   .digest("hex")
   .slice(0, 8);
@@ -87,7 +87,7 @@ const bootstrapName = `csr-bootstrap-${hash}.js`;
 writeFileSync(join(ASSETS_DIR, bootstrapName), bootstrapBytes);
 // Remove temp file
 try {
-  const { unlinkSync } = await import("node:fs");
+  
   unlinkSync(tmpOut);
 } catch {
   /* ignore */
